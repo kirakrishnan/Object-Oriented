@@ -1,0 +1,19 @@
+CC=g++
+CCFLAGS= -c -g -O -Wall -std=c++11
+
+final: thresh generate
+
+thresh: thresh.o
+        $(CC) -o thresh thresh.o
+
+thresh.o: thresh.cc
+        $(CC) $(CCFLAGS) thresh.cc
+
+generate: generate.o
+        $(CC) -o generate generate.o
+
+generate.o: generate.cc
+        $(CC) $(CCFLAGS) generate.cc
+
+clean:
+        rm -rf *o
